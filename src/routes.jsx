@@ -5,8 +5,11 @@ import {
   InformationCircleIcon,
   ServerStackIcon,
   RectangleStackIcon,
+  UserGroupIcon,
+  DocumentIcon,
 } from "@heroicons/react/24/solid";
-import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
+import { Home, Profile, Tables, Notifications, User } from "@/pages/dashboard";
+import  Add_user  from "@/pages/user/add_user";
 import { SignIn, SignUp } from "@/pages/auth";
 
 const icon = {
@@ -41,6 +44,12 @@ export const routes = [
         path: "/notifications",
         element: <Notifications />,
       },
+      {
+        icon: <UserGroupIcon {...icon} />,
+        name: "user",
+        path: "/user",
+        element: <User />,
+      },
     ],
   },
   {
@@ -61,6 +70,19 @@ export const routes = [
       },
     ],
   },
+  {
+    title: "pages",
+    layout: "pages",
+    pages: [
+      {
+        icon: <DocumentIcon {...icon} />,
+        name: "Add User",
+        path: "/newuser",
+        element: <Add_user />,
+      },
+    ],
+  },
 ];
+
 
 export default routes;
