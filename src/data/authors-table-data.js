@@ -1,5 +1,6 @@
 export const authorsTableData = [
   {
+    id:"1",
     img: "/img/save.jpg",
     username: "Aman Surushe",
     PhoneNumber: "+919175623991",
@@ -9,6 +10,7 @@ export const authorsTableData = [
     CreatedAt: "23/04/18",
   },
   {
+    id:"2",
     img: "/img/save3.jpg",
     username: "Alexa Liras",
     PhoneNumber: "+919175623991",
@@ -18,6 +20,7 @@ export const authorsTableData = [
     CreatedAt: "23/04/18",
   },
   {
+    id:"3",
     img: "/img/save2.jpg",
     username: "Laurent Perrier",
     PhoneNumber: "+919175623991",
@@ -27,6 +30,7 @@ export const authorsTableData = [
     CreatedAt: "23/04/18",
   },
   {
+    id:"4",
     img: "/img/save3.jpg",
     username: "Michael Levi",
     PhoneNumber: "+919175623991",
@@ -36,6 +40,7 @@ export const authorsTableData = [
     CreatedAt: "23/04/18",
   },
   {
+    id:"5",
     img: "/img/pattern.png",
     username: "Bruce Mars",
     PhoneNumber: "+919175623991",
@@ -45,6 +50,7 @@ export const authorsTableData = [
     CreatedAt: "23/04/18",
   },
   {
+    id:"6",
     img: "/img/save2.jpg",
     username: "Alexander",
     PhoneNumber: "+919175623991",

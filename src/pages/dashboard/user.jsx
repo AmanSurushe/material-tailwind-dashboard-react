@@ -30,20 +30,20 @@ export function User() {
   return (
     <div className="mt-12 mb-8 flex flex-col gap-12">
       <Card>
-        <CardHeader variant="gradient" color="white" className="mb-8 p-6">
+        <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
            <div class="flex justify-between ...">
-            <div> <Typography variant="h6" color="black">
+            <div> <Typography variant="h6" color="white">
               Users
             </Typography ></div>
             <div >
               <Link to='/dashboard/newuser'>
-              <Button variant="h6" color="dark" class="absolute inset-y-0 right-0 w-16 ..." onClick={handleOnClick}>
+              <Button variant="outlined" color="white" class="absolute inset-y-0 right-0 w-16 ..." onClick={handleOnClick}>
               Add
             </Button>
               </Link></div>
           </div>
         </CardHeader>
-        <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
+        <CardBody className=" px-0 pt-0 pb-2">
           <table className="w-full min-w-[640px] table-auto">
             <thead>
               <tr>
@@ -64,24 +64,28 @@ export function User() {
             </thead>
             <tbody>
               {currentItems.map(
-                ({ img, username, email, PhoneNumber, role, status, CreatedAt }, key) => {
+                ({id, img, username, email, PhoneNumber, role, status, CreatedAt }, key) => {
                   const className = `py-3 px-4 ${
                     key === currentItems.length - 1 ? "" : "border-b border-blue-gray-50"
                   }`;
 
                   return (
-                    <tr key={username}>
+                    <tr key={id}>
                       <td className={className}>
                         <div className="flex items-center gap-4">
                           <Avatar src={img} alt={username} size="sm" variant="rounded" />
                           <div>
+                            <a href="/dashboard/profile">
                             <Typography
                               variant="small"
-                              color="blue-gray"
+                              color="black"
                               className="font-semibold"
                             >
                               {username}
                             </Typography>
+                            </a>
+                           
+                           
                             <Typography className="text-xs font-normal text-blue-gray-500">
                               {email}
                             </Typography>
@@ -100,7 +104,7 @@ export function User() {
                       </td>
                       <td className={className}>
                         <Chip
-                          variant="gradient"
+                          variant="ghost"
                           color={status ? "green" : "red"}
                           value={status ? "Active" : "Block"}
                           className="py-0.5 px-3 text-[12px] font-high w-fit"
@@ -115,7 +119,7 @@ export function User() {
                         <Typography
                           as="a"
                           href="#"
-                          className="text-xs font-semibold text-blue-gray-600"
+                          className="text-xs font-semibold text-indigo-800"
                         >
                           Edit
                         </Typography>
@@ -124,7 +128,7 @@ export function User() {
                         <Typography
                           as="a"
                           href="#"
-                          className="text-xs font-semibold text-blue-gray-600"
+                          className="text-xs font-semibold text-indigo-800"
                         >
                           Delete
                         </Typography>

@@ -7,9 +7,11 @@ import {
   RectangleStackIcon,
   UserGroupIcon,
   DocumentIcon,
+  IdentificationIcon,
 } from "@heroicons/react/24/solid";
-import { Home, Profile, Tables, Notifications, User } from "@/pages/dashboard";
+import { Home, Profile, Tables, Notifications, User ,Role } from "@/pages/dashboard";
 import  Add_user  from "@/pages/user/add_user";
+import  Add_role  from "@/pages/role/add_role";
 import { SignIn, SignUp } from "@/pages/auth";
 
 const icon = {
@@ -27,12 +29,6 @@ export const routes = [
         element: <Home />,
       },
       {
-        icon: <UserCircleIcon {...icon} />,
-        name: "profile",
-        path: "/profile",
-        element: <Profile />,
-      },
-      {
         icon: <TableCellsIcon {...icon} />,
         name: "tables",
         path: "/tables",
@@ -46,9 +42,15 @@ export const routes = [
       },
       {
         icon: <UserGroupIcon {...icon} />,
-        name: "user",
+        name: "users",
         path: "/user",
         element: <User />,
+      },
+      {
+        icon: <IdentificationIcon {...icon} />,
+        name: "roles",
+        path: "/roles",
+        element: <Role />,
       },
     ],
   },
@@ -79,6 +81,18 @@ export const routes = [
         name: "Add User",
         path: "/newuser",
         element: <Add_user />,
+      },
+      {
+        icon: <DocumentIcon {...icon} />,
+        name: "Add Role",
+        path: "/newrole",
+        element: <Add_role />,
+      },
+      {
+        icon: <UserCircleIcon {...icon} />,
+        name: "profile",
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },

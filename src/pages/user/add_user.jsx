@@ -34,8 +34,8 @@ export default function Add_user() {
   return (
     <div className="mt-12 mb-8 flex flex-col gap-12">
       <Card>
-        <CardHeader variant="gradient" color="white" className="mb-8 p-6">
-           <Typography variant="h6" color="black">
+        <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
+           <Typography variant="h6" color="white">
           Create a new user
           </Typography >
         </CardHeader>
