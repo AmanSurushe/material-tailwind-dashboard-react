@@ -1,26 +1,16 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
+
 import { UserCircleIcon } from '@heroicons/react/24/solid'
 import {
   Card,
   CardHeader,
   CardBody,
   Typography,
+  Input,
+  Select,
+  Option,
   Avatar,
   Chip,
-  Button,   
+  Button,
 } from "@material-tailwind/react";
 import { useState } from 'react';
 
@@ -35,31 +25,31 @@ export default function Add_user() {
     <div className="mt-12 mb-8 flex flex-col gap-12">
       <Card>
         <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
-           <Typography variant="h6" color="white">
-          Create a new user
+          <Typography variant="h6" color="white">
+            Create a new user
           </Typography >
         </CardHeader>
         <CardBody className="p-8 " >
-        <form>
-          <div className="space-y-12">
-            <div className="border-b border-gray-900/10 pb-12">
-              <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-               
-              <div className="col-span-full">
-                    <label htmlFor="profile-picture" className="block text-sm font-medium leading-6 text-gray-900">
-                      Profile Picture
-                    </label>
+          <form>
+            <div className="space-y-12">
+              <div className="border-b border-gray-900/10 pb-12">
+                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+
+                  <div className="col-span-full">
+                  <h2 className="text-base font-semibold leading-7 text-gray-900">Profile Picture</h2>
+
                     <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                       <div className="text-center">
                         {selectedFile ? (
-                          <img src={selectedFile} alt="Profile Preview" className="mx-auto h-24 w-24 rounded-full" />
+                          
+                          <img src={selectedFile} alt="Profile Preview" className="h-96 w-96 rounded-full object-cover object-center" />
                         ) : (
                           <UserCircleIcon aria-hidden="true" className="mx-auto h-24 w-24 text-gray-300" />
                         )}
                         <div className="mt-4 flex text-sm leading-6 text-gray-600">
                           <label
                             htmlFor="file-upload"
-                            className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                            className="relative cursor-pointer rounded-md bg-white font-semibold text-black-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-blue-500"
                           >
                             <span>Upload your photo</span>
                             <input
@@ -75,205 +65,134 @@ export default function Add_user() {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+
+              <div className="border-b border-gray-900/10 pb-12">
+                <h2 className="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
+
+                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                  <div className="sm:col-span-1">
+                    <div className="mt-4">
+                      <Input
+                        label="First Name"
+                        size="lg"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="sm:col-span-1">
+                    <div className="mt-4">
+                      <Input
+                        label="Last Name"
+                        size="lg"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="sm:col-span-2">
+                    <div className="mt-4">
+                      <Input
+                        label="Email"
+                        size="lg"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="sm:col-span-1">
+                    <div className="mt-4">
+                      <Select label="Status" size="lg">
+                        <Option>Developer</Option>
+                        <Option>Administrator</Option>
+                        <Option>Operations</Option>
+                        <Option>Support</Option>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div className="sm:col-span-1">
+                    <div className="mt-4">
+                      <Select label="Gender" size="lg">
+                        <Option>Male</Option>
+                        <Option>Female</Option>
+                      </Select>
+                    </div>
+                  </div>
+                  <div className="sm:col-span-1">
+                    <div className="mt-4">
+                      <Input
+                        label="City"
+                        size="lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="sm:col-span-1">
+                    <div className="mt-4">
+                      <Input
+                        label="State"
+                        size="lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="sm:col-span-1s">
+                    <div className="mt-4">
+                      <Input
+                        label="Zip Code"
+                        size="lg"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-span-3">
+                    <div className="mt-4">
+                      <Input
+                        label="Address"
+                        size="lg"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="sm:col-span-3">
+                    <div className="mt-4">
+                      <Input type="password" label="Password" />
+                      <Typography
+                        variant="small"
+                        color="gray"
+                        className="mt-2 flex items-center gap-1 font-normal"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="-mt-px h-4 w-4"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        Use at least 8 characters, one uppercase, one lowercase and one number.
+                      </Typography>
+                    </div>
+                  </div>
+                  <div className="sm:col-span-3">
+                    <div className="mt-4">
+                      <Input type="password" label="Confirm Password" />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+            <div className="mt-6 flex items-center justify-end gap-x-6">
+              <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
+                Cancel
+              </button>
+              <Button variant="filled" type="submit" >Save</Button>
 
-            <div className="border-b border-gray-900/10 pb-12">
-              <h2 className="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
-
-              <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <div className="sm:col-span-2">
-                  <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
-                    First name
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="first-name"
-                      name="first-name"
-                      type="text"
-                      autoComplete="given-name"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-
-                <div className="sm:col-span-2">
-                  <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-gray-900">
-                    Last name
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="last-name"
-                      name="last-name"
-                      type="text"
-                      autoComplete="family-name"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-
-                <div className="sm:col-span-2">
-                  <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                    Email address
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-
-                <div className="sm:col-span-1">
-                  <label htmlFor="gender" className="block text-sm font-medium leading-4 text-gray-900">
-                    Role
-                  </label>
-                  <div className="mt-2">
-                    <select
-                      id="role"
-                      name="role"
-                      autoComplete="role-name"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                    >
-                      <option>Developer</option>
-                      <option>Administrator</option>
-                      <option>Operations</option>
-                      <option>Support</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="sm:col-span-1">
-                  <label htmlFor="gender" className="block text-sm font-medium leading-4 text-gray-900">
-                    Gender
-                  </label>
-                  <div className="mt-2">
-                    <select
-                      id="gender"
-                      name="gender"
-                      autoComplete="gender-name"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                    >
-                      <option>Male</option>
-                      <option>Female</option>
-                    </select>
-                  </div>
-                </div>
-
-               
-
-                <div className="col-span-full">
-                  <label htmlFor="address" className="block text-sm font-medium leading-6 text-gray-900">
-                     Address
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="address"
-                      name="address"
-                      type="text"
-                      autoComplete="address"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-
-                <div className="sm:col-span-2 sm:col-start-1">
-                  <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
-                    City
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="city"
-                      name="city"
-                      type="text"
-                      autoComplete="address-level2"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-
-                <div className="sm:col-span-2">
-                  <label htmlFor="region" className="block text-sm font-medium leading-6 text-gray-900">
-                    State / Province
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="region"
-                      name="region"
-                      type="text"
-                      autoComplete="address-level1"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-
-                <div className="sm:col-span-2">
-                  <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
-                    ZIP / Postal code
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="postal-code"
-                      name="postal-code"
-                      type="text"
-                      autoComplete="postal-code"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-                <div className="sm:col-span-3">
-                  <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
-                   Password
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="password"
-                      name="password"
-                      type="password"
-                      autoComplete="password"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-                <div className="sm:col-span-3">
-                  <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
-                   Confirm Password
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="confirm-password"
-                      name="confirm-password"
-                      type="password"
-                      autoComplete="confirm-password"
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-                
-                
-              </div>
             </div>
-
-        
-          </div>
-
-          <div className="mt-6 flex items-center justify-end gap-x-6">
-            <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              Save
-            </button>
-          </div>
-        </form>
+          </form>
         </CardBody>
-        
+
       </Card>
     </div>
   )

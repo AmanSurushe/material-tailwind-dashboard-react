@@ -31,42 +31,57 @@ export function User() {
     <div className="mt-12 mb-8 flex flex-col gap-12">
       <Card>
         <CardHeader variant="gradient" color="gray" className="mb-8 p-6">
-           <div class="flex justify-between ...">
-            <div> <Typography variant="h6" color="white">
-              Users
-            </Typography ></div>
-            <div >
-              <Link to='/dashboard/newuser'>
-              <Button variant="outlined" color="white" class="absolute inset-y-0 right-0 w-16 ..." onClick={handleOnClick}>
-              Add
-            </Button>
-              </Link></div>
+          <div className="flex justify-between">
+            <div>
+              <Typography variant="h6" color="white">
+                Users
+              </Typography>
+            </div>
+            <div>
+              <Link to="/dashboard/newuser">
+                <Button
+                  variant="outlined"
+                  color="white"
+                  className="absolute inset-y-4 right-7 w-18"
+                  onClick={handleOnClick}
+                >
+                  Add
+                </Button>
+              </Link>
+            </div>
           </div>
         </CardHeader>
-        <CardBody className=" px-0 pt-0 pb-2">
+        <CardBody className="px-0 pt-0 pb-2">
           <table className="w-full min-w-[640px] table-auto">
             <thead>
               <tr>
-                {["user", "contact", "role", "status", "created", "", ""].map((el) => (
-                  <th
-                    key={el}
-                    className="border-b border-blue-gray-50 py-3 px-5 text-left"
-                  >
-                    <Typography
-                      variant="small"
-                      className="text-[11px] font-bold uppercase text-blue-gray-400"
+                {["user", "contact", "role", "status", "created", "", ""].map(
+                  (el, index) => (
+                    <th
+                      key={index}
+                      className="border-b border-blue-gray-50 py-3 px-5 text-left"
                     >
-                      {el}
-                    </Typography>
-                  </th>
-                ))}
+                      <Typography
+                        variant="small"
+                        className="text-[11px] font-bold uppercase text-blue-gray-400"
+                      >
+                        {el}
+                      </Typography>
+                    </th>
+                  )
+                )}
               </tr>
             </thead>
             <tbody>
               {currentItems.map(
-                ({id, img, username, email, PhoneNumber, role, status, CreatedAt }, key) => {
+                (
+                  { id, img, username, email, PhoneNumber, role, status, CreatedAt },
+                  key
+                ) => {
                   const className = `py-3 px-4 ${
-                    key === currentItems.length - 1 ? "" : "border-b border-blue-gray-50"
+                    key === currentItems.length - 1
+                      ? ""
+                      : "border-b border-blue-gray-50"
                   }`;
 
                   return (
@@ -76,16 +91,15 @@ export function User() {
                           <Avatar src={img} alt={username} size="sm" variant="rounded" />
                           <div>
                             <a href="/dashboard/profile">
-                            <Typography
-                              variant="small"
-                              color="black"
-                              className="font-semibold"
-                            >
-                              {username}
-                            </Typography>
+                              <Typography
+                                variant="small"
+                                color="black"
+                                className="font-semibold"
+                              >
+                                {username}
+                              </Typography>
                             </a>
-                           
-                           
+
                             <Typography className="text-xs font-normal text-blue-gray-500">
                               {email}
                             </Typography>
