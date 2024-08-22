@@ -22,7 +22,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t your-dockerhub-username/your-image:latest .
+          docker build -t amansurushe/tailwind-react-app:latest .
           echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
-          docker push your-dockerhub-username/your-image:latest
+          docker push amansurushe/tailwind-react-app:latest
 
