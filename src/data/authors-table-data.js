@@ -21,7 +21,7 @@ export const authorsTableData = [
   },
   {
     id:"3",
-    img: "/img/save2.jpg",
+    img: "/img/superman❤️.jpg",
     username: "Laurent Perrier",
     PhoneNumber: "+919175623991",
     email: "laurent@creative-tim.com",
@@ -51,7 +51,7 @@ export const authorsTableData = [
   },
   {
     id:"6",
-    img: "/img/save2.jpg",
+    img: "/img/superman❤️.jpg",
     username: "Alexander",
     PhoneNumber: "+919175623991",
     email: "alexander@creative-tim.com",
